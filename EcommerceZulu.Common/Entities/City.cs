@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceZulu.Common.Entities
 {
@@ -8,6 +10,10 @@ namespace EcommerceZulu.Common.Entities
         [MaxLength(50, ErrorMessage = "The field {0} must contained less than {1} characteres.")]
         [Required]
         public string Name { get; set; }
+
+        [JsonIgnore]
+        [NotMapped]
+        public int IdDepartment { get; set; }
 
     }
 }
