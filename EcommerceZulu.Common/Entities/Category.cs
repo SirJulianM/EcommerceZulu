@@ -18,7 +18,7 @@ namespace EcommerceZulu.Common.Entities
         [Display(Name = "Image")]
         public string ImageFullPath => ImageId == Guid.Empty
             ? $"https://localhost:44390/images/noimage.png"
-            : $"https://ecommercezulu.blob.core.windows.net/categories/{ImageId}";
+            : $"https://onsale.blob.core.windows.net/categories/{ImageId}";
     }
 
 }
