@@ -4,14 +4,16 @@ using EcommerceZulu.web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EcommerceZulu.web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200824020541_Users")]
+    partial class Users
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,31 +103,6 @@ namespace EcommerceZulu.web.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("EcommerceZulu.Common.Entities.OrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("OrderId");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<int?>("ProductId");
-
-                    b.Property<float>("Quantity");
-
-                    b.Property<string>("Remarks");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderDetails");
-                });
-
             modelBuilder.Entity("EcommerceZulu.Common.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -171,31 +148,6 @@ namespace EcommerceZulu.web.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("productImages");
-                });
-
-            modelBuilder.Entity("EcommerceZulu.web.Data.DataEntities.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<DateTime?>("DateConfirmed");
-
-                    b.Property<DateTime?>("DateSent");
-
-                    b.Property<int>("OrderStatus");
-
-                    b.Property<string>("Remarks");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("EcommerceZulu.web.Data.DataEntities.User", b =>
@@ -396,17 +348,6 @@ namespace EcommerceZulu.web.Migrations
                         .HasForeignKey("CountryId");
                 });
 
-            modelBuilder.Entity("EcommerceZulu.Common.Entities.OrderDetail", b =>
-                {
-                    b.HasOne("EcommerceZulu.web.Data.DataEntities.Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId");
-
-                    b.HasOne("EcommerceZulu.Common.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-                });
-
             modelBuilder.Entity("EcommerceZulu.Common.Entities.Product", b =>
                 {
                     b.HasOne("EcommerceZulu.Common.Entities.Category", "Category")
@@ -419,13 +360,6 @@ namespace EcommerceZulu.web.Migrations
                     b.HasOne("EcommerceZulu.Common.Entities.Product")
                         .WithMany("ProductImages")
                         .HasForeignKey("ProductId");
-                });
-
-            modelBuilder.Entity("EcommerceZulu.web.Data.DataEntities.Order", b =>
-                {
-                    b.HasOne("EcommerceZulu.web.Data.DataEntities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("EcommerceZulu.web.Data.DataEntities.User", b =>

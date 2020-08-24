@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EcommerceZulu.Common.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace EcommerceZulu.web.Models
 {
-    public class CategoryViewModel
+    public class CategoryViewModel : Category
     {
         [Display(Name = "Image")]
         public IFormFile ImageFile { get; set; }

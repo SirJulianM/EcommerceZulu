@@ -1,4 +1,4 @@
-﻿@model EcommerceZulu.web.Models.CategoryViewModel
+﻿@model EcommerceZulu.web.Models.ProductViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,16 +6,15 @@
 
 <h2>Edit</h2>
 
-<h4>Category</h4>
+<h4>Product</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="ImageId" />
 
-            <partial name="_Category" />
+            <partial name="_Product" />
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -31,4 +30,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
