@@ -2,6 +2,7 @@
 using EcommerceZulu.web.Data;
 using EcommerceZulu.web.Helpers;
 using EcommerceZulu.web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceZulu.web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly DataContext _context;
