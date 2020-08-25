@@ -21,6 +21,6 @@ namespace EcommerceZulu.web.Helpers
 
         Task LogoutAsync();
 
-
+        Task<SignInResult> ValidatePasswordAsync(User user, string password);
     }
 }
