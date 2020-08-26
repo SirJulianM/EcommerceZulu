@@ -23,5 +23,8 @@ namespace EcommerceZulu.Common.Entities
         [NotMapped]
         public int IdCountry { get; set; }
 
+        [JsonIgnore]
+        public Country Country { get; set; }
+
     }
 }

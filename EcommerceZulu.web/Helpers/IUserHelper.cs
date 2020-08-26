@@ -1,6 +1,8 @@
-﻿using EcommerceZulu.web.Data.DataEntities;
+﻿using EcommerceZulu.Common.Enums;
+using EcommerceZulu.web.Data.DataEntities;
 using EcommerceZulu.web.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Threading.Tasks;
 
 namespace EcommerceZulu.web.Helpers
@@ -22,5 +24,7 @@ namespace EcommerceZulu.web.Helpers
         Task LogoutAsync();
 
         Task<SignInResult> ValidatePasswordAsync(User user, string password);
+
+        Task<User> AddUserAsync(AddUserViewModel model, Guid imageId, UserType userType);
     }
 }
