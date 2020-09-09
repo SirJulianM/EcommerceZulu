@@ -9,6 +9,17 @@ namespace EcommerceZulu.web.Helpers
 {
     public interface IUserHelper
     {
+        #region "Hola"
+
+        #endregion
+
+        #region "Hola1"
+
+        #endregion
+
+        #region "Hola2"
+
+        #endregion
         Task<User> GetUserAsync(string email);
 
         Task<IdentityResult> AddUserAsync(User user, string password);
@@ -32,6 +43,14 @@ namespace EcommerceZulu.web.Helpers
         Task<IdentityResult> UpdateUserAsync(User user);
 
         Task<User> GetUserAsync(Guid userId);
+
+        Task<string> GenerateEmailConfirmationTokenAsync(User user);
+
+        Task<IdentityResult> ConfirmEmailAsync(User user, string token);
+
+        Task<string> GeneratePasswordResetTokenAsync(User user);
+
+        Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
 
     }
 }
