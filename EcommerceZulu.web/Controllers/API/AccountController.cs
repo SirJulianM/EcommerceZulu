@@ -21,11 +21,13 @@ namespace EcommerceZulu.web.Controllers.API
     {
         private readonly IUserHelper _userHelper;
         private readonly IConfiguration _configuration;
+        private readonly IBlobHelper _blobHelper;
 
-        public AccountController(IUserHelper userHelper, IConfiguration configuration)
+        public AccountController(IUserHelper userHelper, IConfiguration configuration, IBlobHelper blobHelper)
         {
             _userHelper = userHelper;
             _configuration = configuration;
+            _blobHelper = blobHelper;
         }
 
         [HttpPost]

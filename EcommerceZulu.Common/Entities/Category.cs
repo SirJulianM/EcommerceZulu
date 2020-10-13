@@ -17,7 +17,7 @@ namespace EcommerceZulu.Common.Entities
         //TODO: Pending to put the correct paths
         [Display(Name = "Image")]
         public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://localhost:44398/images/noimage.png"
+            ? $"https://onsaleprepweb.azurewebsites.net/images/noimage.png"
             : $"https://onsale.blob.core.windows.net/categories/{ImageId}";
     }
 
